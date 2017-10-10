@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "version": "",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-react": "^0.74.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "sass": "^1.0.0-beta.2"
+  }
+}

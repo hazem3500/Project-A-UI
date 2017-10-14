@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+console.log('banana');
+
 class App extends React.Component {
   constructor(){
     super();
@@ -8,9 +10,9 @@ class App extends React.Component {
 
   render () {
     return <div>
-
-        </div>
+      <p>banana</p>
+    </div>
   }
 }
 
-ReactDOM.render(</App>, document.getElementById('container'));
+ReactDOM.render(<App />, document.getElementById('container'));

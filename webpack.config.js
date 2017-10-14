@@ -1,12 +1,12 @@
 var path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var BUILD_DIR = path.resolve(__dirname, './public');
 var APP_DIR = path.resolve(__dirname, './');
 
 var config = {
   entry: [APP_DIR + '/main.js',
-   'react-hot-loader/patch',
-   'webpack/hot/only-dev-server'],
+   'react-hot-loader/patch'],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -27,10 +27,14 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'})
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('./style.css')
+  ]
 };
 
 module.exports = config;

@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link, Route, Switch } from 'react-router-dom';
 
+import './test.css'
+
 const Home = () => {
   return <h1>Welcome home</h1>
 }
@@ -19,8 +21,8 @@ class App extends React.Component {
 
     return <div>
       <ul>
-        
-        <li ><Link to="/">Home</Link></li>
+
+        <li ><Link to="/" className='banana'>Homes</Link></li>
         <li><Link to="/about">about</Link></li>
       </ul>
 

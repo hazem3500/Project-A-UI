@@ -1,16 +1,11 @@
 import React from 'react'
 
-import classNames from 'classnames'
+import CSSModules from 'react-css-modules';
 
 import styles from './button.css'
 
 const Button = (props) => {
-  const btnClass = classNames(
-      styles.btn,
-      styles[props.size],
-      styles[props.color]
-    );
-  return <button className={ btnClass } onClick={props.clickFunc}>{props.text}</button>
+  return <button styleName={`btn ${props.size} ${props.color}`}  onClick={props.clickFunc}>{props.text}</button>
 }
 
-export default Button
+export default CSSModules(Button, styles, {allowMultiple: true});

@@ -4,22 +4,42 @@ import styles from './login.css'
 
 import Button from '../button/button'
 
+import {
+  graphql,
+  gql
+} from 'react-apollo';
+import { GC_AUTH_TOKEN } from '../../consts'
+
 class Login extends React.Component{
   constructor(){
     super();
 
     this.state = {
       signInStyle: "show",
-      signOutStyle: "hiddenUp"
+      signOutStyle: "hiddenUp",
+      email: "",
+      password: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.signTrans = this.signTrans.bind(this);
   }
 
+
+  // async
   handleSubmit(e){
     e.preventDefault();
-    console.log(e.target, 'submitted');
+    console.log(this.state.email, this.state.password,'submitted');
+    // await
+    const session = this.props.signinUserMutation({
+      variables: {
+        email: this.state.email,
+        password: this.state.password,
+      }
+    })
+    localStorage.setItem("GC_USER_ID", session.data.signinUser.user.id)
+    localStorage.setItem("GC_AUTH_TOKEN", session.data.signinUser.token)
+    console.log(session.data.signinUser.token, session.data.signinUser.user.id, 'submitted');
   }
 
   signTrans(e){
@@ -61,8 +81,8 @@ class Login extends React.Component{
           <Button text='Log in' size='small' color='blue'/>
         </form>
         <form styleName={`signForm ${this.state.signInStyle}`}  onSubmit={(e) => this.handleSubmit(e)}>
-          <input styleName='input' type='text' name='email' placeholder='Email'/>
-          <input styleName='input' type='password' name='password' placeholder='Password'/>
+          <input styleName='input' type='text' name='email' placeholder='Email' value={this.state.email} onChange={(e) => this.setState({email: e.target.value}) }/>
+          <input styleName='input' type='password' name='password' placeholder='Password' value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })}/>
           <div styleName='signFormOption'>
             <div>
               <input type='checkbox' name='rememberMe'/>Remember Me
@@ -77,4 +97,24 @@ class Login extends React.Component{
   }
 }
 
-export default CSSModules(Login, styles, {allowMultiple: true});
+
+const SIGNIN_USER_MUTATION = gql `
+  mutation signinUserMutation($email: String!, $password: String!) {
+    signinUser(
+      authProvider: {
+        email: $email,
+        password: $password,
+      }
+    ) {
+      token
+      user {
+        id
+      }
+    }
+  }
+`
+export default graphql(SIGNIN_USER_MUTATION, {
+  name: 'signinUserMutation'
+}) (CSSModules(Login, styles, {
+  allowMultiple: true
+}));

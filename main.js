@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './app/app.jsx';
+import App from './app/app.jsx'
 
 import { BrowserRouter } from 'react-router-dom';
 

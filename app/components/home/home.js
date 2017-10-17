@@ -1,9 +1,10 @@
 import React from 'react'
+import CSSModules from 'react-css-modules'
 
-import styles from './home.css'
+import styles from '../../styles/home.css'
 
 const Home = () => {
-  return <h1 className={styles.banana}>Welcome home</h1>
+  return <h1 styleName='body'>Welcome home</h1>
 }
 
-export default Home
+export default CSSModules(Home, styles, {allowMultiple: true});

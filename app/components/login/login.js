@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CSSModules from 'react-css-modules'
 
-import styles from './login.css'
+import styles from '../../styles/login.css'
 
 import Button from '../button/button'
 
@@ -29,14 +29,13 @@ class Login extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(e.target, 'submitted');
     // await
     const session = this.props.signinUserMutation({
       variables: {
         email: this.state.email,
         password: this.state.password,
       }
-    })
+    });
     localStorage.setItem("GC_USER_ID", session.data.signinUser.user.id)
     localStorage.setItem("GC_AUTH_TOKEN", session.data.signinUser.token)
     console.log(session.data.signinUser.token, session.data.signinUser.user.id, 'submitted');
@@ -55,7 +54,6 @@ class Login extends React.Component{
         signOutStyle: "hiddenUp"
       });
     }
-    console.log(this.state);
   }
 
   render(){

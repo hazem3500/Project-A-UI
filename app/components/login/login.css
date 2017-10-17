@@ -4,10 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #F5F5F5;
 }
 
 .card {
-  flex: 1 1 auto;
   width: 250px;
   padding: 40px;
   background-color: #fff;
@@ -44,30 +44,39 @@
 }
 
 .signForm{
+  flex: 1 0 248px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  transition: transform 2s, opacity 1.2s;
+  transition: transform 1.5s, opacity 1.2s;
 }
 
 .hiddenIn {
-  transform: translateX(-200px);
+  transform: translateX(-300px);
   opacity: 0;
 }
 
 .hiddenUp {
-  transform: translateX(200px);
   opacity: 0;
 }
 
-.show {
+.showIn {
   transform: translateX(0px);
+}
+
+.showOut {
+  transform: translateX(-248px);
 }
 
 .sign-header{
   display: flex;
   margin-bottom: 20px;
+}
+
+.signTrans{
+  display: flex;
+  overflow-x: hidden;
 }
 
 input[type="radio"]{

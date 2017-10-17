@@ -1,9 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import CSSModules from 'react-css-modules'
 import { Link, Route, Switch } from 'react-router-dom'
 
+import styles from './styles/height-fix.css'
+
 import Login from './components/login/login'
-import Button from './components/button/button'
+
 
 
 class App extends React.Component {
@@ -13,19 +15,12 @@ class App extends React.Component {
 
   render () {
 
-    return <div>
-
-      <Button text='what is this'  size='medium' color='green'/>
-      <ul>
-        <li ><Link to="/login">login</Link></li>
-      </ul>
-
+    return <div styleName='height'>
       <Login />
-
-      <Route exact={true} path="/login" component={Login}/>
+      <Route exact={true} path="/home" component={Login}/>
 
     </div>
   }
 }
 
-export default App
+export default CSSModules(App, styles, {allowMultiple: true});

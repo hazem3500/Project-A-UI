@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 
+import styles from './app/styles/height-fix.css'
+
 import App from './app/app.jsx'
 
 import apolloClient from './app/apolloClient'
@@ -9,8 +11,8 @@ import apolloClient from './app/apolloClient'
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <BrowserRouter>
-	    <ApolloProvider client={apolloClient}>
+    <BrowserRouter className='height'>
+	    <ApolloProvider client={apolloClient} className='height'>
             <App />
 	    </ApolloProvider>
     </BrowserRouter>

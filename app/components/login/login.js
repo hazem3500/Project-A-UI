@@ -27,10 +27,9 @@ class Login extends React.Component{
     this.signTrans = this.signTrans.bind(this);
   }
 
-  handleSubmit(e){
+  async handleSubmit(e){
     e.preventDefault();
-    // await
-    const session = this.props.signinUserMutation({
+    const session = await this.props.signinUserMutation({
       variables: {
         email: this.state.email,
         password: this.state.password,

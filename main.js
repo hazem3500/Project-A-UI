@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
+import "babel-polyfill";
 
 import styles from './app/styles/height-fix.css'
 

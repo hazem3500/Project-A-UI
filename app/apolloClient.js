@@ -2,7 +2,7 @@ import { ApolloProvider, createNetworkInterface, ApolloClient } from 'react-apol
 import { GC_AUTH_TOKEN } from './consts'
 
 const networkInterface = createNetworkInterface({
-    uri: 'http://localhost:3030/graphql'
+    uri: 'http://localhost:5000/graphql'
 })
 
 networkInterface.use([{

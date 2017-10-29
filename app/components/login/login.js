@@ -76,7 +76,7 @@ class Login extends React.Component{
               </div>
               <a href='#'>Forget Password?</a>
             </div>
-            <Link to="/home"><Button text='Log in' size='small' color='blue'/></Link>
+            <Button text='Log in' size='small' color='blue' />
 
           </form>
           <form styleName={`signForm ${this.state.signOutStyle}`}  onSubmit={(e) => this.handleSubmit(e)}>

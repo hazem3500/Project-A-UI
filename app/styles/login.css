@@ -16,59 +16,6 @@
   overflow-x: hidden;
 }
 
-.input {
-  width:100%;
-  padding: 12px 20px 12px 0;
-  margin: 8px 0;
-  border: none;
-  border-bottom: 1px solid #f1f1f1;
-  box-sizing: border-box;
-  background: none;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-
-.input:focus {
-  outline: none;
-  border-bottom: 1px solid #000;
-}
-
-.signFormOption{
-  margin: 15px 0;
-  width: 100%;
-  display: flex;
-  font-size: 14px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.signForm{
-  flex: 1 0 248px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  transition: transform 1.5s, opacity 1.2s;
-}
-
-.hiddenIn {
-  transform: translateX(-300px);
-  opacity: 0;
-}
-
-.hiddenUp {
-  opacity: 0;
-}
-
-.showIn {
-  transform: translateX(0px);
-}
-
-.showOut {
-  transform: translateX(-248px);
-}
-
 .sign-header{
   display: flex;
   margin-bottom: 20px;

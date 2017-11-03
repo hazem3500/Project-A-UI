@@ -3,8 +3,14 @@ import CSSModules from 'react-css-modules'
 
 import styles from '../../styles/home.css'
 
+import Header from '../header/header'
+import Footer from '../footer/footer'
+
 const Home = () => {
-  return <h1 styleName='body'>Welcome home</h1>
+  return <div>
+    <Header/>
+    <Footer/>
+  </div>
 }
 
 export default CSSModules(Home, styles, {allowMultiple: true});

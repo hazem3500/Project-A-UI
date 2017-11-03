@@ -6,12 +6,18 @@ import styles from './styles/height-fix.css'
 
 import Login from './components/login/login'
 import Home from './components/home/home'
+import Header from './components/header/header'
 
 
 
 class App extends React.Component {
   constructor(){
     super();
+
+    this.state = {
+      signStatus: false,
+    }
+
   }
 
   render () {
